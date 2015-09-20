@@ -8,11 +8,24 @@
 #
 execute "devtools" do
   user "root"
-  command 'yum -y groupinstall "Development Tools"'
+  command 'yum -y groupinstall "Development Tools" "Base"'
   action :run
 end
 
-%w[git tar gzip openssl-devel libffi-devel tcl-devel tk-devel libxml2-devel].each do |p|
+%w[
+  git
+  tar
+  gzip
+  openssl-devel
+  libffi-devel
+  tcl-devel
+  tk-devel
+  libxml2-devel
+  readline-devel
+  nc
+  tcpdump
+  vim
+].each do |p|
   package p do
     action :install
   end
